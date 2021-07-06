@@ -1,9 +1,13 @@
-import './App.css';
+import Login from "./components/login";
+import SignUp from "./components/signup";
+import Profile from "./components/profile";
 
 function App() {
   return (
     <div className="App">
-      <h1>Project basic initialisation done.</h1>
+      <Login /> 
+      <SignUp />
+      <Profile /> 
     </div>
   );
 }
