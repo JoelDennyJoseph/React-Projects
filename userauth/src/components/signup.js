@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
     const [email, setEmail] = useState('');
@@ -35,7 +36,7 @@ const SignUp = () => {
                 onChange={ (e) => setPassword(e.target.value)} />
             </div>
             <input type='submit' value='Sign Up' className='btn btn-block' />
-            <p>Already have an Account? Log In</p>
+            <p>Already have an Account?<Link to='/Login'>Log In</Link> </p>
         </form>
     )
 }
