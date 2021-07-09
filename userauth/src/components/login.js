@@ -1,19 +1,31 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import firebase from 'firebase';
+import { Redirect } from 'react-router';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
 
-        if(!email) {
-            alert('Invalid value');
-        }
-
-        setEmail('');
-        setPassword('');
+        await firebase.auth().signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                // Signed in
+                var user = userCredential.user;
+                console.log(user.email);
+                
+                setEmail('');
+                setPassword('');
+                <Redirect to="/Profile" />
+            })
+            .catch((error) => {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                alert("Error code: " + errorCode + "\nError Message: " + errorMessage);
+            }
+        );
     }
 
     return (
