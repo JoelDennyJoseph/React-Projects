@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import firebase from 'firebase';
-import { Redirect } from 'react-router';
+import { useHistory } from 'react-router';
 
 const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const history = useHistory();
 
     const onSubmit = async (e) =>  {
         e.preventDefault();
@@ -19,7 +20,7 @@ const SignUp = () => {
                 
                 setEmail('');
                 setPassword('');
-                <Redirect to="/Profile" />
+                history.push('/Profile');
             })
             .catch((error) => {
                 var errorCode = error.code;
