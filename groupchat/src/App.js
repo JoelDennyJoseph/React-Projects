@@ -26,7 +26,7 @@ function SignIn() {
   };
 
   return (
-    <button onClick={ signInWithGoogle } >Sign In with Google</button>
+    <button className='sign-in' onClick={ signInWithGoogle } >Sign In with Google</button>
   )
 };
 
@@ -48,11 +48,12 @@ function ChatRoom(){
   const sendMessage = async(e) => {
     e.preventDefault();
 
-    const {uid} = auth.currentUser;
+    const {uid, email} = auth.currentUser;
     await messageRef.add({
       text: formValue,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       uid,
+      email,
     });
     
     setFormValue('');
@@ -76,11 +77,12 @@ function ChatRoom(){
 }
 
 function ChatMessage(props){
-  const { text, uid } = props.message;
+  const { text, uid, email } = props.message;
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'recieved';
 
   return(
     <div className={`message ${messageClass}`}>
+      <p>{email}</p>
       <p>{text}</p>
     </div>
   )
