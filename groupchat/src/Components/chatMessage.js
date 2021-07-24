@@ -1,15 +1,10 @@
-import firebase from "firebase/app";
-import "firebase/firestore";
-
-const auth = firebase.auth();
-
-function ChatMessage(props){
-    const { text, uid, email } = props.message;
-    const messageClass = uid === auth.currentUser.uid ? 'sent' : 'recieved';
+function ChatMessage({message, auth}){
+    const { text, uid, photoURL } = message;
+    const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
   
     return(
       <div className={`message ${messageClass}`}>
-        <p>{email}</p>
+        <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} alt=''/>
         <p>{text}</p>
       </div>
     )
