@@ -54,6 +54,10 @@ main::-webkit-scrollbar-thumb {
   background: #6649b8;
 }
 
+.container{
+  margin: 10px;
+}
+
 form {
   height: 10vh;
   position: fixed;
@@ -69,7 +73,6 @@ form button {
   width: 20%;
   background-color: rgb(56, 56, 143);
 }
-
 
 input {
   line-height: 1.5;
@@ -133,14 +136,14 @@ p {
 }
 
 .sent p {
-  color: white;
-  background: #0b93f6;
+  color: black;
+  background: gray;
   align-self: flex-end;
 }
 
 .received p {
-  background: teal;
-  color: black;
+  background: black;
+  color: white;
 }
 
 img {

@@ -32,7 +32,7 @@ function ChatRoom({ auth, firestore }){
   
     return(
       <>
-        <div>
+        <div className='container'>
           { messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} auth={auth}/>) }      
           <div ref={dummy}></div>
         </div>
