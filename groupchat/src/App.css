@@ -28,7 +28,7 @@ body {
 .App section {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   min-height: 100vh;
   background-color: rgb(40, 37, 53);
 }
@@ -56,6 +56,7 @@ main::-webkit-scrollbar-thumb {
 
 .container{
   margin: 10px;
+  margin-bottom: 80px;
 }
 
 form {
@@ -72,6 +73,7 @@ form {
 form button {
   width: 20%;
   background-color: rgb(56, 56, 143);
+  justify-content: center;
 }
 
 input {
