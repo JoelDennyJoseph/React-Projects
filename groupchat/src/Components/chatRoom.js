@@ -1,6 +1,6 @@
 import firebase from "firebase/app";
 import { useCollectionData } from "react-firebase-hooks/firestore";
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import ChatMessage from "./chatMessage";
 
 function ChatRoom({ auth, firestore }){
@@ -27,9 +27,12 @@ function ChatRoom({ auth, firestore }){
       });
       
       setFormValue('');
-      dummy.current.scrollIntoView({behaviour: 'smooth'});
     }
-  
+    
+    useEffect(() => {
+      dummy.current.scrollIntoView({behaviour: 'smooth'});
+    },[messages]);
+
     return(
       <>
         <main>
