@@ -32,14 +32,16 @@ function ChatRoom({ auth, firestore }){
   
     return(
       <>
-        <div className='container'>
-          { messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} auth={auth}/>) }      
-          <div ref={dummy}></div>
-        </div>
+        <main>
+          <div className='container'>
+            { messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} auth={auth}/>) }      
+            <div ref={dummy}></div>
+          </div>
+        </main>
   
         <form onSubmit={sendMessage} >
           <input value={formValue} onChange={(e) => setFormValue(e.target.value)} />
-          <button type='submit'>|^|</button>
+          <button type='submit'>🕊️</button>
         </form>
       </>
     )

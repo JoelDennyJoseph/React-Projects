@@ -28,7 +28,7 @@ body {
 .App section {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   min-height: 100vh;
   background-color: rgb(40, 37, 53);
 }
@@ -47,16 +47,22 @@ main::-webkit-scrollbar {
 }
 
 main::-webkit-scrollbar-track {
-  background: #1e1e24;
+  background: #2f2f41;
 }
 
 main::-webkit-scrollbar-thumb {
-  background: #6649b8;
+  background: #b59ff3;
 }
 
 .container{
   margin: 10px;
-  margin-bottom: 80px;
+}
+
+.messages {
+  flex-direction: column;
+  justify-content: flex-end;
+  height: auto;
+  width: auto;
 }
 
 form {
@@ -109,6 +115,7 @@ button:disabled {
   background: white;
   max-width: 400px;
   margin: 0 auto;
+  justify-content: center;
 }
 
 ul, li {
@@ -139,12 +146,12 @@ p {
 
 .sent p {
   color: black;
-  background: gray;
+  background: teal;
   align-self: flex-end;
 }
 
 .received p {
-  background: black;
+  background: rgb(156, 66, 240);
   color: white;
 }
 
