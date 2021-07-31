@@ -5,9 +5,9 @@ import ChatMessage from "./chatMessage";
 
 function ChatRoom({ auth, firestore }){
     const messageRef = firestore.collection('messages');
-    const query = messageRef.orderBy('createdAt').limit(25);
+    const query = messageRef.orderBy('createdAt', 'desc').limit(25);
   
-    const [messages] =useCollectionData(query, {idField: 'id'});
+    const [messages] = useCollectionData(query, {idField: 'id'});
     const [formValue, setFormValue] = useState('');
   
     const dummy = useRef();
@@ -37,7 +37,7 @@ function ChatRoom({ auth, firestore }){
       <>
         <main>
           <div className='container'>
-            { messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} auth={auth}/>) }      
+            { messages && messages.reverse().map(msg => <ChatMessage key={msg.id} message={msg} auth={auth}/>) }      
             <div ref={dummy}></div>
           </div>
         </main>
