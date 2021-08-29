@@ -1,6 +1,8 @@
 import axios from 'axios';
 import './App.css';
 import { useEffect, useState } from 'react';
+import { Container } from '@material-ui/core';
+import { header} from './components/header';
 
 function App() {
   const [word, setWord] =  useState("");
@@ -26,7 +28,10 @@ function App() {
 
   return (
     <div className="App">
-      Basic App Initialisation
+      <Container maxWidth='md'>
+        <p>Dictionary</p>
+        <header />
+      </Container>
     </div>
   );
 }
