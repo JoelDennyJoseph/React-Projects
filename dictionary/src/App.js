@@ -2,10 +2,10 @@ import axios from 'axios';
 import './App.css';
 import { useEffect, useState } from 'react';
 import { Container } from '@material-ui/core';
-import { header} from './components/header';
+import Header from './components/header';
 
 function App() {
-  const [word, setWord] =  useState("");
+//const [word, setWord] =  useState("");
   const[meanings, setMeanings] = useState([]);
 
   const dictionaryApi = async () => {
@@ -27,11 +27,14 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <Container maxWidth='md'>
-        <p>Dictionary</p>
-        <header />
+    <div className="App" style={{ height: "100vh", backgroundColor: "#282c34", color: "white" }}>
+      
+      <Container maxWidth="md" style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
+                
+        <Header />
+
       </Container>
+    
     </div>
   );
 }
