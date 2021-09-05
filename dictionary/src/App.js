@@ -2,7 +2,8 @@ import axios from 'axios';
 import './App.css';
 import { useEffect, useState } from 'react';
 import { Container } from '@material-ui/core';
-import Header from './components/header';
+import Header from './components/Header/header';
+import Definitions from './components/Definitions/Definitions';
 
 function App() {
   const [word, setWord] =  useState("");
@@ -21,7 +22,7 @@ function App() {
     }
   };
   
-  console.log(meanings);
+  //console.log(meanings);
   
   useEffect(() => {
     dictionaryApi();
@@ -34,8 +35,12 @@ function App() {
                 
         <Header category={category} setCategory={setCategory} word={word} setWord={setWord} setMeanings={setMeanings} />
 
+        { 
+          meanings && <Definitions word={word} meanings={meanings} category={category} />
+        }
+
       </Container>
-    
+
     </div>
   );
 }
