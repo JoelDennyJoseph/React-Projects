@@ -2,8 +2,8 @@ import axios from 'axios';
 import './App.css';
 import { useEffect, useState } from 'react';
 import { Container } from '@material-ui/core';
-import Header from './components/Header/header';
-import Definitions from './components/Definitions/Definitions';
+import Header from './components/header';
+import Definitions from './components/Definitions';
 
 function App() {
   const [word, setWord] =  useState("");
